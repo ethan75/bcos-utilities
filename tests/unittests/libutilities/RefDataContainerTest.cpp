@@ -17,9 +17,9 @@
  *  @date 2021-02-26
  */
 
-#include "bcos-utilities/Common.h"
 #include "bcos-utilities/RefDataContainer.h"
-#include "../../../testutils/TestPromptFixture.h"
+#include "bcos-utilities/Common.h"
+#include "bcos-utilities/testutils/TestPromptFixture.h"
 #include <boost/test/unit_test.hpp>
 #include <iostream>
 #include <vector>

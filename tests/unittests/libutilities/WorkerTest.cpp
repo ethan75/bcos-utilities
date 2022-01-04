@@ -20,8 +20,8 @@
  */
 
 #include "bcos-utilities/Worker.h"
-#include "../../../testutils/TestPromptFixture.h"
 #include "bcos-utilities/Timer.h"
+#include "bcos-utilities/testutils/TestPromptFixture.h"
 #include <boost/test/unit_test.hpp>
 using namespace bcos;
 using namespace std;

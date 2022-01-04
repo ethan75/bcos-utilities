@@ -22,9 +22,9 @@
 
 
 #include "bcos-utilities/Common.h"
-#include "../../../testutils/TestPromptFixture.h"
 #include "bcos-utilities/Error.h"
 #include "bcos-utilities/Exceptions.h"
+#include "bcos-utilities/testutils/TestPromptFixture.h"
 #include <unistd.h>
 #include <boost/test/unit_test.hpp>
 #include <thread>
