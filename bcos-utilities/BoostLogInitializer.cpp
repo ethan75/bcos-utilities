@@ -144,15 +144,15 @@ boost::shared_ptr<bcos::BoostLogInitializer::sink_t> BoostLogInitializer::initLo
  */
 unsigned BoostLogInitializer::getLogLevel(std::string const& levelStr)
 {
-    if (bcos::stringCmpIgnoreCase(levelStr, "trace") == 0)
+    if (boost::iequals(levelStr, "trace"))
         return boost::log::trivial::severity_level::trace;
-    if (bcos::stringCmpIgnoreCase(levelStr, "debug") == 0)
+    if (boost::iequals(levelStr, "debug"))
         return boost::log::trivial::severity_level::debug;
-    if (bcos::stringCmpIgnoreCase(levelStr, "warning") == 0)
+    if (boost::iequals(levelStr, "warning"))
         return boost::log::trivial::severity_level::warning;
-    if (bcos::stringCmpIgnoreCase(levelStr, "error") == 0)
+    if (boost::iequals(levelStr, "error"))
         return boost::log::trivial::severity_level::error;
-    if (bcos::stringCmpIgnoreCase(levelStr, "fatal") == 0)
+    if (boost::iequals(levelStr, "fatal"))
         return boost::log::trivial::severity_level::fatal;
     /// default log level is info
     return boost::log::trivial::severity_level::info;
