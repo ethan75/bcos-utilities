@@ -21,6 +21,11 @@
 #include "Common.h"
 #include "Exceptions.h"
 #include <csignal>
+#if defined(WIN32) || defined(WIN64) || defined(_WIN32) || defined(_WIN32_)
+#include <windows.h>
+#else
+#include <sys/time.h>
+#endif
 #ifdef __APPLE__
 #include <pthread.h>
 #endif
@@ -33,9 +38,13 @@ bytes const NullBytes;
 /// get utc time(ms)
 uint64_t utcTime()
 {
+#if defined(WIN32) || defined(WIN64) || defined(_WIN32) || defined(_WIN32_)
+    return std::chrono::steady_clock::now().time_since_epoch().count() / 1000000;
+#else
     struct timeval tv;
     gettimeofday(&tv, NULL);
     return tv.tv_sec * 1000 + tv.tv_usec / 1000;
+#endif
 }
 
 // getSteadyTime(ms)
@@ -45,13 +54,16 @@ uint64_t utcSteadyTime()
     return std::chrono::steady_clock::now().time_since_epoch().count() / 1000000;
 }
 
-
 /// get utc time(us)
 uint64_t utcTimeUs()
 {
+#if defined(WIN32) || defined(WIN64) || defined(_WIN32) || defined(_WIN32_)
+    return std::chrono::steady_clock::now().time_since_epoch().count() / 1000;
+#else
     struct timeval tv;
     gettimeofday(&tv, NULL);
     return tv.tv_sec * 1000000 + tv.tv_usec;
+#endif
 }
 
 uint64_t utcSteadyTimeUs()
@@ -70,7 +82,7 @@ std::string getCurrentDateTime()
 
 void errorExit(std::stringstream& _exitInfo, Exception const& _exception)
 {
-    BCOS_LOG(ERROR) << _exitInfo.str();
+    BCOS_LOG(WARNING) << _exitInfo.str();
     std::cerr << _exitInfo.str();
     raise(SIGTERM);
     BOOST_THROW_EXCEPTION(_exception << errinfo_comment(_exitInfo.str()));

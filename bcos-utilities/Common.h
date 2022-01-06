@@ -17,7 +17,8 @@
 
 #pragma once
 
-#include <sys/time.h>
+//#include <sys/time.h>
+#include <boost/algorithm/string.hpp>
 #include <boost/container/options.hpp>
 #include <chrono>
 #include <functional>
@@ -139,7 +140,7 @@ inline u256 s2u(s256 _u)
 
 inline int stringCmpIgnoreCase(const std::string& lhs, const std::string& rhs)
 {
-    return strcasecmp(lhs.c_str(), rhs.c_str());
+    return boost::iequals(lhs, rhs);
 }
 
 inline bool isalNumStr(std::string const& _stringData)
@@ -302,6 +303,7 @@ private:
 std::string newSeq();
 void pthread_setThreadName(std::string const& _n);
 
+/*
 template <class... Ts>
 struct overloaded : Ts...
 {
@@ -310,5 +312,6 @@ struct overloaded : Ts...
 // explicit deduction guide (not needed as of C++20)
 template <class... Ts>
 overloaded(Ts...) -> overloaded<Ts...>;
+*/
 
 }  // namespace bcos

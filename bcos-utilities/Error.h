@@ -82,7 +82,7 @@ public:
     }
 
     Error() = default;
-    Error(int32_t _errorCode, std::string _errorMessage)
+    Error(int64_t _errorCode, std::string _errorMessage)
       : bcos::Exception(_errorMessage),
         m_errorCode(_errorCode),
         m_errorMessage(std::move(_errorMessage))
@@ -100,7 +100,7 @@ public:
     }
 
 private:
-    int32_t m_errorCode = 0;
+    int64_t m_errorCode = 0;
     std::string m_errorMessage;
 };
 }  // namespace bcos

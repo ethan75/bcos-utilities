@@ -22,6 +22,7 @@
 #include "Error.h"
 #include <boost/algorithm/hex.hpp>
 #include <boost/throw_exception.hpp>
+#include <boost/utility/string_view.hpp>
 #include <algorithm>
 #include <cstring>
 #include <iterator>

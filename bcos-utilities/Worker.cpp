@@ -16,7 +16,13 @@
  * @file Worker.cpp
  */
 #include "Worker.h"
+
+#if defined(WIN32) || defined(WIN64) || defined(_WIN32) || defined(_WIN32_)
+#include <stdio.h>
+#else
 #include <pthread.h>
+#endif
+
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>
 #include <chrono>
@@ -67,9 +73,9 @@ void Worker::startWorking()
                 }
                 catch (std::exception const& e)
                 {
-                    BCOS_LOG(ERROR) << LOG_DESC("Exception thrown in Worker thread")
-                                    << LOG_KV("threadName", m_threadName)
-                                    << LOG_KV("errorMsg", boost::diagnostic_information(e));
+                    BCOS_LOG(WARNING) << LOG_DESC("Exception thrown in Worker thread")
+                                      << LOG_KV("threadName", m_threadName)
+                                      << LOG_KV("errorMsg", boost::diagnostic_information(e));
                 }
 
                 {

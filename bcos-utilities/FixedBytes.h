@@ -361,8 +361,9 @@ private:
         {
             if (_bytesData.size() != N)
             {
-                BCOS_LOG(ERROR) << LOG_DESC("ConstructFixedBytesFailed") << LOG_KV("requiredLen", N)
-                                << LOG_KV("dataLen", _bytesData.size());
+                BCOS_LOG(WARNING) << LOG_DESC("ConstructFixedBytesFailed")
+                                  << LOG_KV("requiredLen", N)
+                                  << LOG_KV("dataLen", _bytesData.size());
                 BOOST_THROW_EXCEPTION(ConstructFixedBytesFailed() << errinfo_comment(
                                           "Require " + std::to_string(N) + " length input data"));
             }
