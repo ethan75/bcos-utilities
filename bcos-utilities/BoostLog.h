@@ -43,6 +43,10 @@
 #define LOG_KV(_K, _V) "," << (_K) << "=" << (_V)
 #endif
 
+#ifdef ERROR
+#undef ERROR
+#endif
+
 namespace bcos
 {
 extern std::string const FileLogger;
