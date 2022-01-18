@@ -19,7 +19,7 @@
 find_package(Doxygen QUIET)
 if(DOXYGEN_FOUND)
     # Requirements: doxygen graphviz
-      set(doxyfile_in "${CMAKE_CURRENT_SOURCE_DIR}/.Doxyfile.in")
+      set(doxyfile_in "${CMAKE_CURRENT_LIST_DIR}/.Doxyfile.in")
       set(doxyfile "${CMAKE_CURRENT_BINARY_DIR}/Doxyfile")
       configure_file(${doxyfile_in} ${doxyfile} @ONLY)
 elseif()
