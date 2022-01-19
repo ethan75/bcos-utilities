@@ -260,7 +260,7 @@ public:
     template <class Engine>
     void generateRandomFixedBytesByEngine(Engine& _eng)
     {
-        std::uniform_int_distribution<uint8_t> dis(0, 255);
+        std::uniform_int_distribution<int> dis(0, 255);
         for (auto& element : m_data)
         {
             element = dis(_eng);
