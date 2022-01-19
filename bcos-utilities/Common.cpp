@@ -18,6 +18,8 @@
  * @date 2021-02-24
  */
 
+#define NOMINMAX
+
 #include "Common.h"
 #include "Exceptions.h"
 #include <csignal>

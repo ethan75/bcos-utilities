@@ -141,12 +141,12 @@ public:
         if (dataOverlap(_dataContainer))
         {
             memmove((void*)_dataContainer.data(), (void*)data(),
-                std::min(_dataContainer.count(), count()) * sizeof(T));
+                (std::min)(_dataContainer.count(), count()) * sizeof(T));
         }
         else
         {
             memcpy((void*)_dataContainer.data(), (void*)data(),
-                std::min(_dataContainer.count(), count()) * sizeof(T));
+                (std::min)(_dataContainer.count(), count()) * sizeof(T));
         }
         // reset the remaining data to 0
         if (_dataContainer.count() > count())

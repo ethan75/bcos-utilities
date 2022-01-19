@@ -146,10 +146,10 @@ BOOST_AUTO_TEST_CASE(testOverlap)
     RefDataContainer<const char> str_ref(str.c_str());
     // all overlap
     RefDataContainer<const char> sub_str_ref1(
-        str_ref.data() + 1, (size_t)std::min((size_t)str.length() - 2, (size_t)5) / sizeof(char));
+        str_ref.data() + 1, (size_t)(std::min)((size_t)str.length() - 2, (size_t)5) / sizeof(char));
     // part overlap
     RefDataContainer<const char> sub_str_ref2(
-        str_ref.data() + 3, (size_t)std::min((size_t)str.length() - 2, (size_t)5) / sizeof(char));
+        str_ref.data() + 3, (size_t)(std::min)((size_t)str.length() - 2, (size_t)5) / sizeof(char));
     // std::string tmp_str = "abcd";
     // RefDataContainer<const char> non_overlap_ref(tmp_str);
     BOOST_CHECK(str_ref.dataOverlap(sub_str_ref1) == true);
@@ -164,8 +164,8 @@ BOOST_AUTO_TEST_CASE(testOverlap)
         v1_ref[i] = i;
     }
 
-    RefDataContainer<int> v2_ref(&(*v1_int.begin()) + (size_t)std::min(v1_int.size(), (size_t)(1)),
-        std::min(v1_int.size(), (size_t)(5)));
+    RefDataContainer<int> v2_ref(&(*v1_int.begin()) + (size_t)(std::min)(v1_int.size(), (size_t)(1)),
+        (std::min)(v1_int.size(), (size_t)(5)));
     // test overlap
     BOOST_CHECK(v2_ref.dataOverlap(v1_ref));
     std::vector<int> tmp_v;

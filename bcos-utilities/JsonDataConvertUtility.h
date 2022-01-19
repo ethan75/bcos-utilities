@@ -67,7 +67,7 @@ FixedBytes<N> jonStringToFixedBytes(std::string const& _s)
 {
     if (_s.substr(0, 2) == "0x")
         // Hex
-        return FixedBytes<N>(_s.substr(2 + std::max<unsigned>(N * 2, _s.size() - 2) - N * 2));
+        return FixedBytes<N>(_s.substr(2 + std::max(N * 2, (unsigned)(_s.size() - 2)) - N * 2));
     else if (_s.find_first_not_of("0123456789") == std::string::npos)
         // Decimal
         return (typename FixedBytes<N>::ArithType)(_s);

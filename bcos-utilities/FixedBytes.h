@@ -129,7 +129,7 @@ public:
 
     explicit FixedBytes(byte const* _data, size_t _dataSize) : FixedBytes()
     {
-        memcpy(m_data.data(), _data, std::min(_dataSize, (size_t)N));
+        memcpy(m_data.data(), _data, (std::min)(_dataSize, (size_t)N));
     }
 
     explicit FixedBytes(byte const* _bs, ConstructorType) : FixedBytes()
@@ -343,7 +343,7 @@ private:
     void constructFixedBytes(bytesConstRef _bytesData, DataAlignType _alignType)
     {
         m_data.fill(0);
-        auto copyDataSize = std::min((unsigned)_bytesData.size(), N);
+        auto copyDataSize = (std::min)((unsigned)_bytesData.size(), N);
         switch (_alignType)
         {
         case DataAlignType::AlignLeft:
