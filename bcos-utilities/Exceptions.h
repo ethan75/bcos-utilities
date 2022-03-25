@@ -47,10 +47,9 @@ private:
 };
 
 /// construct a new exception class overriding Exception
-#define DERIVE_BCOS_EXCEPTION(X)                                      \
-    struct X : virtual Exception                                      \
-    {                                                                 \
-        explicit X(std::string _m = std::string()) : Exception(_m){}; \
+#define DERIVE_BCOS_EXCEPTION(X) \
+    struct X : virtual Exception \
+    {                            \
     }
 DERIVE_BCOS_EXCEPTION(ConstructFixedBytesFailed);
 DERIVE_BCOS_EXCEPTION(BadCast);
