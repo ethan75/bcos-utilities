@@ -36,7 +36,7 @@ HunterGate(
     FILEPATH "${BCOS_UTILITIES_CMAKE_DIR}/config.cmake"
 )
 project(bcos-utilities VERSION "1.0.0")
-set(VERSION_SUFFIX "-rc1")
+set(VERSION_SUFFIX "-rc2")
 
 # basic settings
 include(Options)
